@@ -370,7 +370,6 @@ server <- function(input, output) {
         scale_color_manual(values = c("#353436", "#1b98e0", "#5FB404", "#cc5500")) +
         labs(x = "", y = "Temperature (°C)") +
         theme(text=element_text(size=15,  family="Times")) +
-        ggtitle("Temperature") +
         coord_cartesian(xlim = ranges$x, ylim = cond_ranges$y, expand = FALSE)
       return(tempPlot)
     } else {
@@ -409,12 +408,16 @@ server <- function(input, output) {
   #  bivariate plot output
   output$bivariatePlot <- renderPlot({
     data <- if (is.null(zoomed_data())) biReactive() else zoomed_data()
+    
+    data <- data %>%
+      filter(Site != "Surface")
+    
     bivariate_plot <- ggplot(data, aes(x= get(paste(input$selectXbi)), y = get(paste(input$selectYbi)), color = Site)) +
       geom_point() + 
       theme_classic() +
       labs(x = input$selectXbi, y = input$selectYbi) +
       theme(text = element_text(size = 20, family = "Times")) +
-      scale_color_manual(values = c("#353436", "#1b98e0", "#5FB404", "#cc5500")) +
+      scale_color_manual(values = c("#353436", "#1b98e0", "#5FB404")) +
       ggtitle(title())
     if (input$showBestFit) {
       bivariate_plot <- bivariate_plot +
