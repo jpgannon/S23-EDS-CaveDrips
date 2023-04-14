@@ -89,7 +89,7 @@ ui <- fluidPage(
   tags$head(tags$style(HTML('*{font-family: times;}'))),
   useShinyjs(),
   theme = shinytheme("darkly"),
-  navbarPage("Tabs",
+  navbarPage("James Cave Data Collection",
     
     # information tab
     tabPanel("Information",
