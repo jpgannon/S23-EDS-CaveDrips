@@ -126,7 +126,6 @@ ui <- fluidPage(
                          br(),
                          h3(strong("Description of Variables:"), style = "font-family: 'times'; font-si35pt"),
                          p(strong("meanDischarge"), "- hourly drip rate of the water, measured in milliliters per minute", style = "font-family: 'times'; font-si16pt"),
-                         p(strong("meanDrip"), "- hourly amount of water that has dripped from the spleothems, measured in mm", style = "font-family: 'times'; font-si16pt"),
                          p(strong("avgCond"), "- hourly conductance or the amount of ions present in the water, measured in microsiemens per centimeter (µs/cm)", style = "font-family: 'times'; font-si16pt"),
                          p(strong("temp"), "- temperature of the sites in the cave, measured in °C", style = "font-family: 'times'; font-si16pt"),
                          p(strong("hourlyPrecip"), "- hourly precipitation in the area near the cave, measured in mm", style = "font-family: 'times'; font-si16pt"),
